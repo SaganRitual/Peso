@@ -6,7 +6,7 @@ final class GameController: ObservableObject {
     let gameScene: GameScene
     let gameSettings: GameSettings
 
-    var entities = [Entity<SelectionHalo>]()
+    var entities = [GameEntity]()
 
     init(gameSettings: GameSettings) {
         let selectionMarquee = SelectionMarquee(gameSettings)
@@ -18,19 +18,16 @@ final class GameController: ObservableObject {
     }
 
     func newGremlin(at position: CGPoint) -> Gremlin {
-        let gremlinView = EntityViewSprite(imageNamed: "cyclops")
-        let gremlin = Gremlin(gremlinView)
+        let gremlin = Gremlin.make(at: position)
 
-        gameScene.entitiesNode.addChild(gremlinView)
-
-        gremlinView.setOwnerEntity(gremlin)
+        gameScene.entitiesNode.addChild(gremlin.view)
 
         return gremlin
     }
 }
 
 extension GameController {
-    func deselect(_ entity: Entity<SelectionHalo>) {
+    func deselect(_ entity: GameEntity) {
         entity.selectionHalo.hide()
     }
 
@@ -38,7 +35,7 @@ extension GameController {
         entities.forEach { $0.selectionHalo.hide() }
     }
 
-    func select(_ entity: Entity<SelectionHalo>) {
+    func select(_ entity: GameEntity) {
         entity.selectionHalo.show()
     }
 
@@ -46,7 +43,7 @@ extension GameController {
         getSelectable(in: rectangle)?.forEach { $0.selectionHalo.show() }
     }
 
-    func toggleSelect(_ entity: Entity<SelectionHalo>) {
+    func toggleSelect(_ entity: GameEntity) {
         entity.selectionHalo.toggleVisible()
     }
 
@@ -57,9 +54,9 @@ extension GameController {
 
 private extension GameController {
 
-    func getSelectable(in rectangle: CGRect) -> [Entity<SelectionHalo>]? {
-        let entities: [Entity<SelectionHalo>] = self.entities.compactMap { entity in
-            guard rectangle.contains(entity.selectionHalo.node.position) else {
+    func getSelectable(in rectangle: CGRect) -> [GameEntity]? {
+        let entities: [GameEntity] = self.entities.compactMap { entity in
+            guard rectangle.contains(entity.selectionHalo.position) else {
                 return nil
             }
 

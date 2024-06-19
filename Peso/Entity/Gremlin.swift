@@ -3,15 +3,24 @@
 import Foundation
 import SpriteKit
 
-final class Gremlin: Entity<SelectionHaloRoscalable> {
-    let view: EntityViewSprite
+final class Gremlin: GameEntity {
+    var view: EntityViewSprite!
 
-    init(_ view: EntityViewSprite) {
+    func postInit(view: EntityViewSprite, selectionHalo: SelectionHalo) {
         self.view = view
+        self.selectionHalo = selectionHalo
+    }
 
-        super.init()
+    static func make(at position: CGPoint) -> Gremlin {
+        let gremlinView = EntityViewSprite(imageNamed: "cyclops")
+        let gremlin = Gremlin()
+        let selectionHalo = SelectionHalo.makeHalo()
 
-        replaceSelectionHalo(with: SelectionHaloRoscalable.self)
+        gremlin.postInit(view: gremlinView, selectionHalo: selectionHalo)
+        selectionHalo.postInit(gremlin)
+        gremlinView.postInit(gremlin, position)
+
+        return gremlin
     }
 }
 

@@ -7,9 +7,14 @@ final class EntityViewSprite: SKSpriteNode {
     var dragAnchor: CGPoint?
     var dragging = false
 
+    func postInit(_ gameEntity: GameEntity, _ position: CGPoint) {
+        self.position = position
+        setOwnerEntity(gameEntity)
+    }
+
     override func mouseDown(with event: NSEvent) {
         // Remember to treat the next mouse move as begin-drag
-        if getOwnerEntity() is Entity.Feature.Draggable {
+        if getOwnerEntity()?.selectionHalo is SelectionHaloDraggable {
             dragAnchor = position
         }
     }
@@ -39,13 +44,13 @@ final class EntityViewSprite: SKSpriteNode {
             return
         }
 
-        if let entity = getOwnerEntity() as? Entity.Feature.Selectable {
+        if let halo = getOwnerEntity()?.selectionHalo as? SelectionHaloDraggable {
             if event.modifierFlags.contains(.control) {
                 // Context menu for this entity
             } else if event.modifierFlags.contains(.shift) {
-                entity.toggleSelect()
+                halo.toggleVisible()
             } else {
-                entity.select()
+                halo.show()
             }
         }
     }

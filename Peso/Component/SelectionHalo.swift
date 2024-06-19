@@ -3,18 +3,27 @@
 import Foundation
 import SpriteKit
 
-class SelectionHalo {
-    weak var entity: Entity<SelectionHalo>?
-    let node: SKShapeNode
+class SelectionHalo: SKShapeNode {
+    weak var gameEntity: GameEntity?
 
-    required init(entity: Entity<SelectionHalo>) {
-        self.entity = entity
-        self.node = SKShapeNode()
+    static let radius = 25.0
+
+    static func makeHalo() -> SelectionHalo {
+        let shape = SelectionHalo(circleOfRadius: radius)
+
+        shape.lineWidth = 1
+        shape.strokeColor = .green
+        shape.fillColor = .clear
+        shape.blendMode = .replace
+        shape.isHidden = true
+        shape.name = "MoveHandleShape"
+
+        return shape
     }
 
-    func hide() { node.isHidden = true }
-    func show() { node.isHidden = false }
-    func toggleVisible() { node.isHidden = !node.isHidden }
+    func postInit(_ gameEntity: GameEntity) {
+        self.gameEntity = gameEntity
+    }
 }
 
 class SelectionHaloDraggable: SelectionHalo {

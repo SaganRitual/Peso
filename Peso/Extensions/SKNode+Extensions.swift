@@ -4,12 +4,12 @@ import Foundation
 import SpriteKit
 
 extension SKNode {
-    func getOwnerEntity() -> Entity? {
+    func getOwnerEntity() -> GameEntity? {
         guard let entry = userData?["ownerEntity"] else { return nil }
-        return entry as? Entity
+        return entry as? GameEntity
     }
 
-    func setOwnerEntity(_ entity: Entity) {
+    func setOwnerEntity(_ entity: GameEntity) {
         if userData == nil { userData = [:] }
         userData!["ownerEntity"] = entity
     }

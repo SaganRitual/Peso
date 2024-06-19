@@ -23,7 +23,6 @@
 		D4D1EFCC2C22373600003163 /* CoreGraphics+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1EFCB2C22373600003163 /* CoreGraphics+Extensions.swift */; };
 		D4D1EFCE2C223D7F00003163 /* SelectionMarquee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1EFCD2C223D7F00003163 /* SelectionMarquee.swift */; };
 		D4D1EFD22C2267AA00003163 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1EFD12C2267AA00003163 /* GameController.swift */; };
-		D4D1EFDE2C230FEE00003163 /* DragHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1EFDD2C230FEE00003163 /* DragHandle.swift */; };
 		D4D1EFE32C2317B300003163 /* GameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1EFE22C2317B300003163 /* GameComponent.swift */; };
 		D4D1EFE52C2333C400003163 /* SelectionHalo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D1EFE42C2333C400003163 /* SelectionHalo.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +47,6 @@
 		D4D1EFCD2C223D7F00003163 /* SelectionMarquee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionMarquee.swift; sourceTree = "<group>"; };
 		D4D1EFD12C2267AA00003163 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		D4D1EFD72C22BBB800003163 /* Components.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Components.md; sourceTree = "<group>"; };
-		D4D1EFDD2C230FEE00003163 /* DragHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragHandle.swift; sourceTree = "<group>"; };
 		D4D1EFE22C2317B300003163 /* GameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComponent.swift; sourceTree = "<group>"; };
 		D4D1EFE42C2333C400003163 /* SelectionHalo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHalo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,7 +139,6 @@
 		D4D1EFE12C23173400003163 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				D4D1EFDD2C230FEE00003163 /* DragHandle.swift */,
 				D4D1EFE22C2317B300003163 /* GameComponent.swift */,
 				D4D1EFE42C2333C400003163 /* SelectionHalo.swift */,
 			);
@@ -222,7 +219,6 @@
 				D4D1EFD22C2267AA00003163 /* GameController.swift in Sources */,
 				D4D1EFCE2C223D7F00003163 /* SelectionMarquee.swift in Sources */,
 				D4D1EFBC2C2212F600003163 /* SpriteKitView.swift in Sources */,
-				D4D1EFDE2C230FEE00003163 /* DragHandle.swift in Sources */,
 				D4D1EFBE2C22191600003163 /* EntityViewShape.swift in Sources */,
 				D4D1EFE52C2333C400003163 /* SelectionHalo.swift in Sources */,
 				D4D1EFC62C22285000003163 /* GameEntity.swift in Sources */,
